@@ -4,28 +4,22 @@ import (
 	"strings"
 )
 
-var data = map[rune]string{
-	1:  "AEIOULNRST",
-	2:  "DG",
-	3:  "BCMP",
-	4:  "FHVWY",
-	5:  "K",
-	8:  "JX",
-	10: "QZ",
+var data = map[rune]int{
+	'A': 1, 'E': 1, 'I': 1, 'O': 1, 'U': 1, 'L': 1, 'N': 1, 'R': 1, 'S': 1, 'T': 1,
+	'D': 2, 'G': 2,
+	'B': 3, 'C': 3, 'M': 3, 'P': 3,
+	'F': 4, 'H': 4, 'V': 4, 'W': 4, 'Y': 4,
+	'K': 5,
+	'J': 8, 'X': 8,
+	'Q': 10, 'Z': 10,
 }
 
 // Score function for scramble
 func Score(word string) int {
 	result := 0
 
-	for _, i := range strings.ToUpper(word) {
-		// fmt.Printf("Size: %d\nType: %s\nCharacter: %c\n", unsafe.Sizeof(aa), reflect.TypeOf(aa), aa)
-
-		for key, value := range data {
-			if strings.Contains(value, string(rune(i))) {
-				result += int(key)
-			}
-		}
+	for _, r := range strings.ToUpper(word) {
+		result += data[r]
 	}
 
 	return result
