@@ -1,0 +1,6 @@
+.idea
+*/.exercism
+go.mod
+README.md
+*_test.go
+metadata.json
