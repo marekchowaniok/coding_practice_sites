@@ -12,10 +12,7 @@ func Valid(input string) bool {
 		return false
 	}
 
-	odd := false
-	if len(input)%2 == 0 {
-		odd = true
-	}
+	odd := len(input)%2 == 0 
 	sum := 0
 	for _, r := range input {
 		n, err := strconv.Atoi(string(r))
